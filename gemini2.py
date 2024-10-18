@@ -82,3 +82,11 @@ st.header("Feedback Loop")
 feedback = st.text_area("프로세스 개선을 위한 피드백을 입력해주세요:")
 if st.button("피드백 제출"):
     st.success("피드백이 제출되었습니다. 감사합니다!")
+
+try:
+    import google.generativeai as genai
+    st.write(f"Successfully imported google.generativeai version: {genai.__version__}")
+except ImportError as e:
+    st.error(f"Failed to import google.generativeai: {e}")
+    st.error(f"Installed packages: {', '.join(__import__('pkg_resources').working_set.by_key.keys())}")
+    raise
